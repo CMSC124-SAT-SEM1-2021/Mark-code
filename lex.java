@@ -34,7 +34,7 @@ public class lex {
         File file = new File( "C:\\Users\\ctian\\Desktop\\test.txt");			//path of files
 		BufferedReader br = new BufferedReader(new FileReader(file));				//Reader
 		
-		String x=null; 															
+		int x; 															
         String st = null;
         
         while ((st = br.readLine()) != null) {						//while end is not reached st is equal to line
@@ -45,17 +45,17 @@ public class lex {
              	
              	
              	if (Character.isDigit(input)) {						//checking if char is digit letter or unknown
-        			x = "DIGIT";
+        			x = 1;											//DIGIT =1
         		} else if (Character.isLetter(input)) {
-        			x = "LETTER";
+        			x = 0;											//LETER =0
         		}else {
-        			x = "UNKNOWN";      				
+        			x = 2;      									//UNKNOWN =2
         		}
              	
              	
-             	if (x == "LETTER" || x== "DIGIT") {					//if letter or digit, add to array to form lexeme
+             	if (x == 1 || x== 0) {					//if letter or digit, add to array to form lexeme
              		addChar(input);
-             	} else if (x == "UNKNOWN") {             		
+             	} else if (x == 2) {             		
              		String word = new String(lexemeArray);			//create string from array
              		String token = lookup(word);
              		
